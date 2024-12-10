@@ -9,6 +9,7 @@ ___
 ___
 
 ## Структура репозитория
+```
 ReviewPulse/
 ├── data/                       # Данные
 │   ├── clean                   # Очищенные данные
@@ -22,3 +23,4 @@ ReviewPulse/
 ├── .gitignore
 ├── LICENSE
 └── README.md
+```
