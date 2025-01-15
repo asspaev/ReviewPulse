@@ -11,15 +11,22 @@ ___
 ## Структура репозитория
 ```
 ReviewPulse/
+├── dashboard/                  # Дашборд
+│   └── run_dashboard.py        # Запуск дашборда
 ├── data/                       # Данные
-│   ├── clean                   # Очищенные данные
-│   ├── processed               # Предобработанные данные
-│   └── raw                     # Спарсенные данные
+│   ├── release                 # Собранные даннные
+│   ├── results                 # Результаты исследования
+│   └── tests                   # Данные для изучения
 ├── notebooks/                  # Ноутбуки
 │   ├── data_cleaning           # Очистка данных
 │   ├── data_collection         # Парсинг данных
 │   ├── data_preprocessing      # Предобработка данных
 │   └── exploratory_analysis    # Аналитический анализ данных
+├── src/                        # Пайплайн проекта
+│   ├── models/                 # Модели и запросы SQLAlchemy
+│   ├── engine.py               # Основной пайплайн
+│   └── utils.py                # Дополнительные функции
+├── main.py                     # Запуск пайплайна
 ├── .gitignore
 ├── LICENSE
 └── README.md
