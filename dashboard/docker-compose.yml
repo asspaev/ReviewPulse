@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  metabase:
+    image: metabase/metabase:v0.46.0
+    container_name: metabase_new
+    environment:
+      - MB_DB_FILE=/metabase-data/metabase.db  # Это для хранения самой базы данных Metabase
+    ports:
+      - "3000:3000"
+    volumes:
+      - D:\Documents\ITMO\Semestr_1\EngDataMan\ReviewPulse\dashboard\metabase-data:/metabase-data  # Монтируем данные Metabase
+      - D:/Documents/ITMO/Semestr_1/EngDataMan/ReviewPulse/data/release/base.db:/data/release/base.db  # Убедитесь, что путь указывает на файл базы данных
+    restart: always
