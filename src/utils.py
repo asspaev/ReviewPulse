@@ -10,6 +10,8 @@ from selenium.webdriver.chromium.webdriver import ChromiumDriver
 from selenium.webdriver.common.by import By
 from typing import Tuple
 import re
+from pandas import DataFrame
+import string
 
 import src.models.requests as sql
 from settings import SIZE_COUNT_REVIEWS
@@ -77,3 +79,33 @@ def open_optimal_reviews(driver: ChromiumDriver) -> None:
         )
         # Нажимаем на элемент
         element.click()
+
+def extract_product_article(url: str) -> int:
+    """Извлечь product_article из URL."""
+    match = re.search(r'/catalog/(\d+)/', url)
+    if match:
+        return int(match.group(1))
+    else:
+        raise ValueError("Не удалось извлечь product_article из URL.")
+
+def get_clean_reviews(reviews_data: list) -> DataFrame:
+    """Извлечь отзывы без служебной информации"""
+    cleaned_reviews = []
+    for review in reviews_data:
+        cleaned_review = {
+            'product_article': review['product_article'],
+            'rating': review['rating'],
+            'text_plus': review['text_plus'],
+            'text_comment': review['text_comment'],
+            'text_all': review['text_all'],
+            'review_id': review['review_id'],
+            'text_minus': review['text_minus']
+        }
+        cleaned_reviews.append(cleaned_review)
+    return cleaned_reviews
+
+def clean_text(text: str) -> str:
+    """Приведение текста к нижнему регистру и удаление знаков препинания"""
+    if isinstance(text, str):
+        return text.lower().translate(str.maketrans('', '', string.punctuation))
+    return text

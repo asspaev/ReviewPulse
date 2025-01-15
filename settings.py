@@ -1,8 +1,8 @@
 # Каталоги, которые будем анализировать
 links_catalogs = [
-    'https://www.wildberries.ru/catalog/yuvelirnye-ukrasheniya/koltsa',
-    'https://www.wildberries.ru/catalog/aksessuary/galstuki-i-babochki',
-    'https://www.wildberries.ru/catalog/knigi/nehudozhestvennaya-literatura/filosofiya'
+    'https://www.wildberries.ru/catalog/novyy-god/elki?xsubject=260',
+    'https://www.wildberries.ru/catalog/obuv/muzhskaya/tufli-lofery',
+    'https://www.wildberries.ru/catalog/aksessuary/tovary-dlya-zhivotnyh/igrushki-dlya-zhivotnyh'
 ]
 
 # Количество товаров, которые парсим с каждого каталога
